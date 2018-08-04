@@ -1,0 +1,48 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
+
+version: '2.3'
+
+services:
+  mysql:
+    image: mysql:${AS_MYSQL_TAG}
+    container_name: aspace-${ASPACE_TAG}-mysql
+    command: ['--character-set-server=utf8', '--collation-server=utf8_general_ci', '--innodb_buffer_pool_size=4G', '--innodb_buffer_pool_instances=4']
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    ports:
+      - "${AS_MYSQL_PORT}:3306"
+    volumes:
+      - db-volume:/var/lib/mysql
+      - ./db-dump:/docker-entrypoint-initdb.d
+
+  archivesspace:
+    image: ${ASPACE_IMAGE}:${ASPACE_TAG}
+    container_name: aspace-${ASPACE_TAG}-app
+    links:
+      - mysql:db
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "${ASPACE_FRONT_END}:8080"
+      - "${ASPACE_PUBLIC}:8081"
+      - "${ASPACE_BACKEND}:8089"
+      - "${ASPACE_SOLR}:8090"
+    environment:
+      - ARCHIVESSPACE_DB_TYPE=mysql
+    volumes:
+      - ./aspace/config:/archivesspace/config
+      - ./aspace/plugins:/archivesspace/plugins
+      - ./aspace/data:/archivesspace/data/
+      - ./aspace/logs:/archivesspace/logs
+
+volumes:
+  db-volume:
