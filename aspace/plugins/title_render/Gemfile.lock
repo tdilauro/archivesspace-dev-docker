@@ -1,0 +1,13 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    truncate_html (0.9.3)
+
+PLATFORMS
+  java
+
+DEPENDENCIES
+  truncate_html (~> 0.9.3)
+
+BUNDLED WITH
+   1.12.5
