@@ -2,17 +2,12 @@
 
 ## Configure variables in the *.env* file
 - Edit the *.env* file, change version tags, and save the file
-
-## Build the v 1.x Docker image
-There are no docker images for ArchivesSpace 1.x on the ArchivesSpace Docker Hub, so we must build one.
-
- Run: *source ./.env*
+- Run: *source ./.env*
   - WARNING: This may change variables you use in your Unix shell, though this is unlikely.
-- Create version-specific Dockerfile
-  - Run: *cp -p Dockerfile.template "Dockerfile-${ASPACE_TAG}"*
-  - Edit the new Docker file to change the GitHub version tag ("v?.?.?". E.g., "v1.5.4")
-- Run: *docker build -t "${ASPACE_IMAGE}:${ASPACE_TAG}" -f "Dockerfile-${ASPACE_TAG}" .*
-  - example effective command: *docker build -t "local/archivesspace:1.5.4" -f Dockerfile-1.5.4 .*
+
+## v1.x Docker image
+There are no docker images for ArchivesSpace 1.x on the ArchivesSpace Docker Hub, but there is one
+for v1.5.4 at tdilauro/archivesspace.
 
 ## Initialize the MySQL service
 - Run: *docker-compose up mysql*
