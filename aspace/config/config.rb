@@ -15,4 +15,18 @@ AppConfig[:backend_log_level] = "info"
 
 ## Plug-ins to load. They will load in the order specified
 # AppConfig[:plugins] = ['local']
+# AppConfig[:plugins] = ['local', 'aspace_feedback', 'jhu-local-plugins', 'jhu-suppress', 'jhu-marc-exporter', 'jhu-aspace-search-identifier', 'jhu_public', 'user_defined_in_basic', 'lcnaf']
+AppConfig[:plugins] = ['local', 'aspace_feedback', 'jhu-autogenerate-doid', 'jhu-local-plugins', 'jhu-suppress', 'jhu-marc-exporter', 'jhu-aspace-search-identifier', 'jhu_public', 'title_render', 'user_defined_in_basic', 'timewalk', 'lcnaf', ]
+#
+## Container management plugin configuration
+AppConfig[:container_management_extent_calculator] = {
+    :report_volume => true,
+    :unit => :feet
+}
+## User defined in basic plugin
+AppConfig[:user_defined_in_basic] = {
+    'accessions' => ['real_1'],
+    'resources' => ['real_1'],
+    'hide_user_defined_section' => false
+}
 
