@@ -1,9 +1,7 @@
 
 
 ## Configure variables in the *.env* file
-- Edit the *.env* file, change version tags, and save the file
-- Run: *source ./.env*
-  - WARNING: This may change variables you use in your Unix shell, though this is unlikely.
+- Edit the *.env* file, change version tags, and save the file.
 
 ## v1.x Docker image
 There are no docker images for ArchivesSpace 1.x on the ArchivesSpace Docker Hub, but there is one
