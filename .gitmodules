@@ -1,0 +1,3 @@
+[submodule "aspace/plugins/user_defined_in_basic"]
+	path = aspace/plugins/user_defined_in_basic
+	url = https://github.com/jhu-archives-and-manuscripts/user_defined_in_basic.git
