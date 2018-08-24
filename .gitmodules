@@ -1,3 +1,21 @@
 [submodule "aspace/plugins/user_defined_in_basic"]
 	path = aspace/plugins/user_defined_in_basic
 	url = https://github.com/jhu-archives-and-manuscripts/user_defined_in_basic.git
+[submodule "aspace/plugins/jhu_public"]
+	path = aspace/plugins/jhu_public
+	url = https://github.com/jhu-archives-and-manuscripts/aspace_plugin-jhu_public.git
+[submodule "aspace/plugins/jhu-aspace-search-identifier"]
+	path = aspace/plugins/jhu-aspace-search-identifier
+	url = https://github.com/jhu-archives-and-manuscripts/jhu-aspace-search-identifier.git
+[submodule "aspace/plugins/jhu-local-plugins"]
+	path = aspace/plugins/jhu-local-plugins
+	url = https://github.com/jhu-archives-and-manuscripts/jhu-local-plugins.git
+[submodule "aspace/plugins/jhu-marc-exporter"]
+	path = aspace/plugins/jhu-marc-exporter
+	url = https://github.com/jhu-archives-and-manuscripts/jhu-marc-exporter.git
+[submodule "aspace/plugins/jhu-suppress"]
+	path = aspace/plugins/jhu-suppress
+	url = https://github.com/jhu-archives-and-manuscripts/jhu-suppress.git
+[submodule "aspace/plugins/title_render"]
+	path = aspace/plugins/title_render
+	url = https://github.com/jhu-archives-and-manuscripts/aspace_plugin-title_render.git
